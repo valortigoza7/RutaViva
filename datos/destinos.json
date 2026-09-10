@@ -1,0 +1,107 @@
+[
+  {
+    "nombre": "Bariloche",
+    "categoria": "montaña",
+    "region": "Patagonia",
+    "rating": 9.0,
+    "descripcion": "Lagos, cerros y chocolate al pie de la cordillera."
+  },
+  {
+    "nombre": "San Martín de los Andes",
+    "categoria": "montaña",
+    "region": "Patagonia",
+    "rating": 9.0,
+    "descripcion": "Pueblo de montaña sobre el lago Lácar, puerta de la ruta de los siete lagos."
+  },
+  {
+    "nombre": "El Chaltén",
+    "categoria": "montaña",
+    "region": "Patagonia",
+    "rating": 8.9,
+    "descripcion": "Capital nacional del trekking, a los pies del Fitz Roy."
+  },
+  {
+    "nombre": "Villa La Angostura",
+    "categoria": "montaña",
+    "region": "Patagonia",
+    "rating": 8.7,
+    "descripcion": "Bosques de arrayanes y vistas al lago Nahuel Huapi."
+  },
+  {
+    "nombre": "Mar del Plata",
+    "categoria": "playa",
+    "region": "Buenos Aires",
+    "rating": 7.8,
+    "descripcion": "La ciudad balnearia más visitada de la costa atlántica."
+  },
+  {
+    "nombre": "Pinamar",
+    "categoria": "playa",
+    "region": "Buenos Aires",
+    "rating": 8.0,
+    "descripcion": "Playas tranquilas rodeadas de bosques de pinos."
+  },
+  {
+    "nombre": "Cabo Polonio",
+    "categoria": "playa",
+    "region": "Uruguay",
+    "rating": 8.5,
+    "descripcion": "Sin electricidad de red, dunas y lobos marinos."
+  },
+  {
+    "nombre": "Buenos Aires",
+    "categoria": "ciudad",
+    "region": "Buenos Aires",
+    "rating": 8.6,
+    "descripcion": "Capital cultural con tango, arquitectura europea y gastronomía."
+  },
+  {
+    "nombre": "Salta",
+    "categoria": "ciudad",
+    "region": "NOA",
+    "rating": 8.8,
+    "descripcion": "Casco histórico colonial, puerta de entrada a los valles calchaquíes."
+  },
+  {
+    "nombre": "Córdoba",
+    "categoria": "ciudad",
+    "region": "Cuyo",
+    "rating": 8.2,
+    "descripcion": "Vida universitaria, sierras cercanas y arquitectura jesuítica."
+  },
+  {
+    "nombre": "Iguazú",
+    "categoria": "naturaleza",
+    "region": "Litoral",
+    "rating": 9.6,
+    "descripcion": "Una de las cataratas más imponentes del mundo, en plena selva."
+  },
+  {
+    "nombre": "Valle de la Luna",
+    "categoria": "naturaleza",
+    "region": "Cuyo",
+    "rating": 9.1,
+    "descripcion": "Formaciones rocosas y paisajes lunares en San Juan."
+  },
+  {
+    "nombre": "Salinas Grandes",
+    "categoria": "naturaleza",
+    "region": "NOA",
+    "rating": 8.9,
+    "descripcion": "Un desierto de sal blanco que se extiende hasta el horizonte."
+  },
+  {
+    "nombre": "Ushuaia",
+    "categoria": "naturaleza",
+    "region": "Patagonia",
+    "rating": 9.0,
+    "descripcion": "La ciudad más austral del mundo, puerta a la Antártida."
+  },
+  {
+    "nombre": "Mendoza",
+    "categoria": "ciudad",
+    "region": "Cuyo",
+    "rating": 8.7,
+    "descripcion": "Capital del vino argentino, con la cordillera de fondo."
+  }
+]
