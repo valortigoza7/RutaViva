@@ -15,7 +15,7 @@ Las demás opciones del menú (Top 10, relacionados, conexiones, caminos, recome
 se van a implementar en etapas posteriores del TP, a medida que se incorporen
 árbol binario/AVL, heap, grafo, BFS/DFS y caminos mínimos.
 
-Pruebas automatizadas
+### Pruebas automatizadas
 
 Se implementaron pruebas automatizadas para verificar el funcionamiento del catálogo.
 
@@ -40,6 +40,12 @@ Todas las pruebas finalizaron correctamente, sin errores ni fallos.
 ## Cómo ejecutar
 
 Requiere Python 3.10+ (no usa dependencias externas).
+
+## Pruebas
+
+Para ejecutar pruebas automatizadas:
+
+python -m unittest discover tests
 
 ```bash
 python3 main.py
