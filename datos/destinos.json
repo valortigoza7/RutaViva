@@ -103,5 +103,75 @@
     "region": "Cuyo",
     "rating": 8.7,
     "descripcion": "Capital del vino argentino, con la cordillera de fondo."
+  },
+  {
+    "nombre": "Purmamarca",
+    "categoria": "montaña",
+    "region": "NOA",
+    "rating": 9.2,
+    "descripcion": "Pueblo histórico al pie del imponente Cerro de los Siete Colores."
+  },
+  {
+    "nombre": "El Calafate",
+    "categoria": "naturaleza",
+    "region": "Patagonia",
+    "rating": 9.5,
+    "descripcion": "Tierra de glaciares y puerta de acceso al majestuoso Perito Moreno."
+  },
+  {
+    "nombre": "Puerto Madryn",
+    "categoria": "naturaleza",
+    "region": "Patagonia",
+    "rating": 8.9,
+    "descripcion": "Punto estratégico para el avistaje de ballenas francas australes y fauna marina."
+  },
+  {
+    "nombre": "Villa Carlos Paz",
+    "categoria": "ciudad",
+    "region": "Córdoba",
+    "rating": 8.3,
+    "descripcion": "Centro turístico serrano con gran cartelera teatral y paseos junto al lago San Roque."
+  },
+  {
+    "nombre": "Merlo",
+    "categoria": "montaña",
+    "region": "Cuyo",
+    "rating": 8.6,
+    "descripcion": "Reconocido mundialmente por su microclima del tercer tipo y paisajes de las Sierras de Comechingones."
+  },
+  {
+    "nombre": "San Ignacio Miní",
+    "categoria": "naturaleza",
+    "region": "Litoral",
+    "rating": 8.5,
+    "descripcion": "Ruinas jesuitas declaradas Patrimonio de la Humanidad, inmersas en la selva misionera."
+  },
+  {
+    "nombre": "Las Grutas",
+    "categoria": "playa",
+    "region": "Patagonia",
+    "rating": 8.1,
+    "descripcion": "Playas de aguas inusualmente cálidas y acantilados en el golfo de Río Negro."
+  },
+  {
+    "nombre": "Cafayate",
+    "categoria": "ciudad",
+    "region": "NOA",
+    "rating": 8.9,
+    "descripcion": "Cuna del vino torrontés, rodeada de bodegas y formaciones rojizas en los Valles Calchaquíes."
+  },
+  {
+    "nombre": "Colonia del Sacramento",
+    "categoria": "ciudad",
+    "region": "Uruguay",
+    "rating": 8.8,
+    "descripcion": "Casco histórico portugués de calles empedradas a orillas del Río de la Plata."
+  },
+  {
+    "nombre": "Esteros del Iberá",
+    "categoria": "naturaleza",
+    "region": "Litoral",
+    "rating": 9.3,
+    "descripcion": "Uno de los grandes humedales del planeta, ideal para el avistaje de yacarés, carpinchos y aves."
   }
 ]
