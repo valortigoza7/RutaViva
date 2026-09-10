@@ -15,6 +15,28 @@ Las demás opciones del menú (Top 10, relacionados, conexiones, caminos, recome
 se van a implementar en etapas posteriores del TP, a medida que se incorporen
 árbol binario/AVL, heap, grafo, BFS/DFS y caminos mínimos.
 
+Pruebas automatizadas
+
+Se implementaron pruebas automatizadas para verificar el funcionamiento del catálogo.
+
+Resultado de la ejecución:
+
+.....
+----------------------------------------------------------------------
+Ran 5 tests in 0.015s
+
+OK
+
+Las pruebas verifican:
+
+- Búsqueda de un destino por nombre.
+- Búsqueda sin distinguir mayúsculas y minúsculas.
+- Búsqueda de un destino inexistente.
+- Listado de destinos.
+- Filtrado de destinos por categoría.
+
+Todas las pruebas finalizaron correctamente, sin errores ni fallos.
+
 ## Cómo ejecutar
 
 Requiere Python 3.10+ (no usa dependencias externas).
