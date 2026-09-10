@@ -45,7 +45,9 @@ Requiere Python 3.10+ (no usa dependencias externas).
 
 Para ejecutar pruebas automatizadas:
 
+```bash
 python -m unittest discover tests
+```
 
 ```bash
 python3 main.py
