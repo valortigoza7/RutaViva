@@ -37,10 +37,6 @@ Las pruebas verifican:
 
 Todas las pruebas finalizaron correctamente, sin errores ni fallos.
 
-## Cómo ejecutar
-
-Requiere Python 3.10+ (no usa dependencias externas).
-
 ## Pruebas
 
 Para ejecutar pruebas automatizadas:
@@ -48,6 +44,9 @@ Para ejecutar pruebas automatizadas:
 ```bash
 python -m unittest discover tests
 ```
+## Cómo ejecutar
+
+Requiere Python 3.10+ (no usa dependencias externas).
 
 ```bash
 python3 main.py
