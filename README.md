@@ -53,3 +53,13 @@ python3 main.py
 ```
 
 ## Estructura del proyecto
+
+## Documentación y Diagrama de Clases
+
+- **Diagrama de Clases:** Se encuentra documentado en la carpeta `docs` en el archivo [03_diagrama_clases.md](docs/03_diagrama_clases.md).
+
+## Demostración de Ejecución (Demo)
+
+A continuación se muestra una captura de pantalla del menú funcional ejecutándose desde la consola:
+
+![Demostración de ejecución](docs/demo.png)
