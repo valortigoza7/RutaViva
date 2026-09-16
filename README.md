@@ -1,65 +1,46 @@
 # RutaViva ✈️
 
-Sistema de recomendación de destinos de viaje — TP Integrador de Estructuras de Datos.
+Sistema de recomendación de destinos de viaje — TP Integrador de Estructuras de Datos.  
+**Estado actual:** TP1 — Objetos y clases
 
-## Estado actual: TP1 — Objetos y clases
+---
 
-En esta etapa el sistema:
+## Puntos Desarrollados en esta Entrega
 
-- Define la clase de dominio `Destino` con atributos encapsulados (privados) y accesos mediante propiedades.
-- Carga los datos desde `datos/destinos.json`.
-- Expone tres operaciones sobre el catálogo: **Buscar**, **Listar** y **Filtrar** (por categoría).
-- Cuenta con una interfaz de terminal funcional.
+### 1. Ampliación del Dataset
+Se expandió la base de datos de la aplicación en `datos/destinos.json`, incorporando un total de **25 destinos turísticos** con su respectiva categoría, región, rating y descripción.
 
-Las demás opciones del menú (Top 10, relacionados, conexiones, caminos, recomendaciones)
-se van a implementar en etapas posteriores del TP, a medida que se incorporen
-árbol binario/AVL, heap, grafo, BFS/DFS y caminos mínimos.
+### 2. Pruebas Automatizadas
+Se creó la carpeta `tests/` y el módulo `tests/test_catalogo.py` con 5 pruebas unitarias (`unittest`) para validar:
+- Búsqueda por nombre exacto.
+- Búsqueda sin distinción de mayúsculas/minúsculas.
+- Manejo de destinos inexistentes.
+- Listado completo de destinos.
+- Filtrado correcto por categoría.
 
-### Pruebas automatizadas
+### 3. Casos de Uso
+Se documentó el análisis funcional en la carpeta `docs`:
+- [docs/02-casos-de-uso.md](docs/02-casos-de-uso.md)
 
-Se implementaron pruebas automatizadas para verificar el funcionamiento del catálogo.
+### 4. Diagrama de Clases
+Se estructuró el diagrama UML de las clases de dominio y catálogo utilizando la sintaxis de Mermaid:
+- [docs/03_diagrama_clases.md](docs/03_diagrama_clases.md)
 
-Resultado de la ejecución:
+### 5. Documentación General (README)
+Se completó la documentación del repositorio reflejando el progreso de los 6 puntos solicitados para la entrega del TP1.
 
-.....
-----------------------------------------------------------------------
-Ran 5 tests in 0.015s
+### 6. Demostración de Ejecución (Demo)
+A continuación se adjunta la captura de pantalla de la terminal con el menú funcional ejecutándose:
 
-OK
+![Demostración del Sistema](docs/demo.png)
 
-Las pruebas verifican:
+---
 
-- Búsqueda de un destino por nombre.
-- Búsqueda sin distinguir mayúsculas y minúsculas.
-- Búsqueda de un destino inexistente.
-- Listado de destinos.
-- Filtrado de destinos por categoría.
+## Guía de Ejecución
 
-Todas las pruebas finalizaron correctamente, sin errores ni fallos.
+### Requisitos
+- Requiere Python 3.10+ (sin dependencias externas).
 
-## Pruebas
-
-Para ejecutar pruebas automatizadas:
-
+### Ejecutar las Pruebas Automatizadas
 ```bash
 python -m unittest discover tests
-```
-## Cómo ejecutar
-
-Requiere Python 3.10+ (no usa dependencias externas).
-
-```bash
-python3 main.py
-```
-
-## Estructura del proyecto
-
-## Documentación y Diagrama de Clases
-
-- **Diagrama de Clases:** Se encuentra documentado en la carpeta `docs` en el archivo [03_diagrama_clases.md](docs/03_diagrama_clases.md).
-
-## Demostración de Ejecución (Demo)
-
-A continuación se muestra una captura de pantalla del menú funcional ejecutándose desde la consola:
-
-![Demostración de ejecución](docs/demo.png)
