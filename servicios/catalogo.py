@@ -7,6 +7,7 @@ Buscar, Listar y Filtrar.
 """
 
 import json
+import bisect
 from pathlib import Path
 from typing import List, Optional
 
@@ -52,3 +53,20 @@ class Catalogo:
 
     def cantidad(self) -> int:
         return len(self._destinos)
+
+    def ordenar_por_nombre(self) -> None:
+        """Ordena los destinos alfabéticamente para permitir búsqueda binaria."""
+        self._destinos.sort(key=lambda destino: destino.nombre.lower())
+
+
+    def buscar_binaria(self, nombre: str):
+        """Busca un destino por nombre mediante búsqueda binaria."""
+        claves = [destino.nombre.lower() for destino in self._destinos]
+        nombre_buscado = nombre.lower()
+
+        indice = bisect.bisect_left(claves, nombre_buscado)
+
+        if indice < len(claves) and claves[indice] == nombre_buscado:
+            return self._destinos[indice]
+
+        return None
