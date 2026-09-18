@@ -17,6 +17,7 @@ from modelos.destino import Destino
 class Catalogo:
     def __init__(self):
         self._destinos: List[Destino] = []
+        self._claves: List[str] = []
 
     def cargar_desde_json(self, ruta: str) -> None:
         path = Path(ruta)
@@ -33,6 +34,7 @@ class Catalogo:
             )
             for item in datos
         ]
+        self._claves = []
 
     def buscar(self, nombre: str) -> Optional[Destino]:
         nombre = nombre.strip().lower()
@@ -55,18 +57,21 @@ class Catalogo:
         return len(self._destinos)
 
     def ordenar_por_nombre(self) -> None:
-        """Ordena los destinos alfabéticamente para permitir búsqueda binaria."""
+        """Ordena los destinos alfabéticamente para permitir búsqueda binaria y actualiza cache de claves"""
         self._destinos.sort(key=lambda destino: destino.nombre.lower())
+        self._claves = [d.nombre.lower() for d in self._destinos]
 
 
     def buscar_binaria(self, nombre: str):
         """Busca un destino por nombre mediante búsqueda binaria."""
-        claves = [destino.nombre.lower() for destino in self._destinos]
-        nombre_buscado = nombre.lower()
+        if not self._destinos:
+            return None
+        if not self._claves or len(self._claves)!= len(self._destinos):
+            self._claves = [d.nombre.lower() for d in self._destinos]
 
-        indice = bisect.bisect_left(claves, nombre_buscado)
+        nombre_buscado = nombre.strip().lower()
+        indice = bisect.bisect_left(self._claves, nombre_buscado)
 
-        if indice < len(claves) and claves[indice] == nombre_buscado:
+        if indice < len(self._claves) and self._claves[indice] == nombre_buscado:
             return self._destinos[indice]
-
         return None
