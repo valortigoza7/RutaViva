@@ -1,5 +1,11 @@
 """
 Interfaz de terminal de RutaViva.
+
+TP3: la opción "Buscar destino" pasa a resolverse con el árbol
+binario de búsqueda (Catalogo.buscar_en_arbol) en vez de la
+búsqueda secuencial del TP1. Esta es la integración real que pide
+la consigna: el árbol no es una estructura aislada de prueba, es
+la que efectivamente usa el usuario al buscar un destino.
 """
 
 from servicios.catalogo import Catalogo
@@ -17,7 +23,7 @@ def mostrar_destino(destino) -> None:
 
 def opcion_buscar(catalogo: Catalogo) -> None:
     nombre = input("Nombre del destino: ").strip()
-    resultado = catalogo.buscar(nombre)
+    resultado = catalogo.buscar_en_arbol(nombre)
     if resultado:
         mostrar_destino(resultado)
     else:
