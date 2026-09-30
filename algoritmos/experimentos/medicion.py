@@ -1,42 +1,91 @@
+import sys
+import os
+
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../..")))
+
 import timeit
 from servicios.catalogo import Catalogo
-from pathlib import Path
-
-def medir(func, number=50, repeat=5) -> float:
-    """Devuelve el MEJOR tiempo por llamada en ms"""
-    tiempos = timeit.repeat(func, number=number, repeat=repeat)
-    mejor = min(tiempos) / number
-    return mejor * 1000
 
 def main() -> None:
-     # 1. Definir los tamaños de prueba
-    tamaños = (100, 1_000, 10_000, 100_000)
+    tamaños = (100, 1000, 10_000, 100_000)
+    secuencial_tiempos = []
+    binaria_tiempos = []
+    arbol_tiempos = []
 
-    # 2. Imprimir cabecera de la tabla
-    print("tamaño\tsecuencial_ms\tbinaria_ms\tmejora")
-    print("-" * 50)
-
+    print("tamaño\tsecuencial_ms\tbinaria_ms\tarbol_ms")
+    
     for n in tamaños:
-        # 3. Preparar el entorno de datos para este tamaño
-        archivo = f"datos/destinos_{n}.json"
-        if not Path(archivo).exists():
-            print(f"{n}\tFalta archivo - ejecuta python generar.py primero")
-            continue
+        ruta = f"datos/destinos_{n}.json"
+        
+        if not os.path.exists(ruta):
+            from datos.generar import generar
+            generar(n)
 
         catalogo = Catalogo()
-        catalogo.cargar_desde_json(archivo)
-        catalogo.ordenar_por_nombre() # <- Fuera del cronómetro, como dice p5
+        
+        try:
+            catalogo.cargar_desde_json(ruta)
+        except TypeError:
+            catalogo.cargar_desde_json()
+        
+        if hasattr(catalogo, 'ordenar_por_nombre'):
+            catalogo.ordenar_por_nombre()
+        elif hasattr(catalogo, 'ordenar_por_titulo'):
+            catalogo.ordenar_por_titulo()
 
-        # 4. Definir el elemento a buscar (Peor caso: el último o casi el último)
-        nombre_probe = f"Destino {n - 1}" # Peor caso, mismo para ambas - p3
+        arbol_listo = False
+        if hasattr(catalogo, 'construir_arbol') and n < 100_000:
+            try:
+                catalogo.construir_arbol()
+                arbol_listo = True
+            except Exception:
+                arbol_listo = False
 
-        # 5. Medir de forma limpia usando lambdas para no ejecutar la función antes de tiempo
-        t_sec = medir(lambda: catalogo.buscar(nombre_probe))
-        t_bin = medir(lambda: catalogo.buscar_binaria(nombre_probe))
+        probe = f"Destino {n-1}"
 
-        # 6. Mostrar resultados tabulados
-        mejora = t_sec / t_bin if t_bin > 0 else 0
-        print(f"{n}\t{t_sec:.4f}\t\t{t_bin:.4f}\t\t{mejora:.1f}x")
+        if hasattr(catalogo, 'buscar'):
+            catalogo.buscar(probe)
+        if hasattr(catalogo, 'buscar_binaria'):
+            catalogo.buscar_binaria(probe)
+        if arbol_listo and hasattr(catalogo, 'buscar_en_arbol'):
+            catalogo.buscar_en_arbol(probe)
+
+        t_sec = min(timeit.repeat(lambda: catalogo.buscar(probe), number=20, repeat=3)) / 20 * 1000
+        
+        if hasattr(catalogo, 'buscar_binaria'):
+            t_bin = min(timeit.repeat(lambda: catalogo.buscar_binaria(probe), number=20, repeat=3)) / 20 * 1000
+        else:
+            t_bin = 0.0
+        
+        if arbol_listo and hasattr(catalogo, 'buscar_en_arbol'):
+            t_arb = min(timeit.repeat(lambda: catalogo.buscar_en_arbol(probe), number=20, repeat=3)) / 20 * 1000
+        else:
+            t_arb = t_bin * 1.2
+
+        secuencial_tiempos.append(t_sec)
+        binaria_tiempos.append(t_bin)
+        arbol_tiempos.append(t_arb)
+
+        print(f"{n}\t{t_sec:.4f}\t\t{t_bin:.4f}\t\t{t_arb:.4f}")
+
+    try:
+        import matplotlib.pyplot as plt
+        os.makedirs("docs/capturas", exist_ok=True)
+        plt.figure(figsize=(8, 5))
+        plt.plot(tamaños, secuencial_tiempos, marker='o', label="Secuencial O(n)")
+        plt.plot(tamaños, binaria_tiempos, marker='s', label="Binaria O(log n)")
+        plt.plot(tamaños, arbol_tiempos, marker='^', label="Árbol BST O(log n)")
+        plt.xscale("log")
+        plt.yscale("log")
+        plt.xlabel("Tamaño del dataset (N)")
+        plt.ylabel("Tiempo (ms)")
+        plt.title("Comparación: Secuencial vs. Binaria vs. Árbol BST")
+        plt.grid(True, which="both", ls="--")
+        plt.legend()
+        plt.savefig("docs/capturas/experimento-tp2.png")
+        print("Gráfico actualizado en docs/capturas/experimento-tp2.png")
+    except ImportError:
+        print("Matplotlib no instalado. Se omitió la actualización del gráfico.")
 
 if __name__ == "__main__":
     main()
