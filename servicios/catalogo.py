@@ -16,6 +16,9 @@ opción "Buscar destino" — no es un árbol aislado de prueba, sino la
 implementación de producción de la búsqueda por nombre. Las otras
 dos (buscar y buscar_binaria) se conservan porque el TP2 las sigue
 necesitando para la comparación de complejidad.
+
+TP6: se agrega top_n, que usa la heap binaria (servicios/heap_binaria.py)
+para obtener los N destinos mejor puntuados sin ordenar todo el catálogo.
 """
 
 import bisect
@@ -25,6 +28,7 @@ from typing import List, Optional
 
 from modelos.destino import Destino
 from servicios.arbol_binario import ArbolBinarioBusqueda
+from servicios.heap_binaria import HeapBinaria
 
 
 class Catalogo:
@@ -109,6 +113,39 @@ class Catalogo:
         necesita una inserción O(log n) promedio por destino nuevo.
         """
         return self._arbol.buscar(nombre.strip().lower())
+
+    # --- TP6: Top-N con heap binaria ---
+    def top_n(self, n: int) -> List[Destino]:
+        """
+        Devuelve los n destinos con mayor rating, de mejor a peor.
+        Si hay empate de rating, sale primero el que se cargó antes.
+
+        Complejidad: O(m + n log m), con m = cantidad de destinos.
+        - Armar la heap con la construcción de Floyd (sift_down desde
+          la mitad hacia atrás) cuesta O(m), en vez de O(m log m) que
+          costaría insertar de a uno.
+        - Cada extraer_maximo cuesta O(log m) y se hace solo n veces.
+        Ordenar todo el catálogo costaría O(m log m) aunque se pidan
+        solo 10 destinos.
+        """
+        if n <= 0:
+            return []
+
+        heap = HeapBinaria()
+        # Misma tupla que arma HeapBinaria.insertar: (prioridad, -orden, elemento)
+        heap.heap = [
+            (destino.rating, -i, destino)
+            for i, destino in enumerate(self._destinos)
+        ]
+        heap._contador = len(heap.heap)
+        for i in range(len(heap.heap) // 2 - 1, -1, -1):
+            heap.sift_down(i)
+
+        resultado = []
+        while len(resultado) < n and not heap.esta_vacia():
+            _, destino = heap.extraer_maximo()
+            resultado.append(destino)
+        return resultado
 
     # --- Operación 2: Listar ---
     def listar(self) -> List[Destino]:
