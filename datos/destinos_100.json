@@ -1,0 +1,702 @@
+[
+  {
+    "nombre": "Destino 0",
+    "categoria": "playa",
+    "region": "Córdoba",
+    "rating": 4.4,
+    "descripcion": "Destino generado automáticamente 0"
+  },
+  {
+    "nombre": "Destino 1",
+    "categoria": "ciudad",
+    "region": "Buenos Aires",
+    "rating": 1.2,
+    "descripcion": "Destino generado automáticamente 1"
+  },
+  {
+    "nombre": "Destino 2",
+    "categoria": "playa",
+    "region": "Uruguay",
+    "rating": 7.9,
+    "descripcion": "Destino generado automáticamente 2"
+  },
+  {
+    "nombre": "Destino 3",
+    "categoria": "naturaleza",
+    "region": "Buenos Aires",
+    "rating": 7.5,
+    "descripcion": "Destino generado automáticamente 3"
+  },
+  {
+    "nombre": "Destino 4",
+    "categoria": "naturaleza",
+    "region": "Córdoba",
+    "rating": 1.7,
+    "descripcion": "Destino generado automáticamente 4"
+  },
+  {
+    "nombre": "Destino 5",
+    "categoria": "ciudad",
+    "region": "Litoral",
+    "rating": 2.9,
+    "descripcion": "Destino generado automáticamente 5"
+  },
+  {
+    "nombre": "Destino 6",
+    "categoria": "playa",
+    "region": "Litoral",
+    "rating": 6.3,
+    "descripcion": "Destino generado automáticamente 6"
+  },
+  {
+    "nombre": "Destino 7",
+    "categoria": "playa",
+    "region": "Córdoba",
+    "rating": 4.3,
+    "descripcion": "Destino generado automáticamente 7"
+  },
+  {
+    "nombre": "Destino 8",
+    "categoria": "ciudad",
+    "region": "Litoral",
+    "rating": 5.8,
+    "descripcion": "Destino generado automáticamente 8"
+  },
+  {
+    "nombre": "Destino 9",
+    "categoria": "playa",
+    "region": "Buenos Aires",
+    "rating": 5.7,
+    "descripcion": "Destino generado automáticamente 9"
+  },
+  {
+    "nombre": "Destino 10",
+    "categoria": "naturaleza",
+    "region": "Cuyo",
+    "rating": 2.6,
+    "descripcion": "Destino generado automáticamente 10"
+  },
+  {
+    "nombre": "Destino 11",
+    "categoria": "naturaleza",
+    "region": "Patagonia",
+    "rating": 2.6,
+    "descripcion": "Destino generado automáticamente 11"
+  },
+  {
+    "nombre": "Destino 12",
+    "categoria": "naturaleza",
+    "region": "NOA",
+    "rating": 4.5,
+    "descripcion": "Destino generado automáticamente 12"
+  },
+  {
+    "nombre": "Destino 13",
+    "categoria": "montaña",
+    "region": "NOA",
+    "rating": 5.4,
+    "descripcion": "Destino generado automáticamente 13"
+  },
+  {
+    "nombre": "Destino 14",
+    "categoria": "naturaleza",
+    "region": "Buenos Aires",
+    "rating": 7.1,
+    "descripcion": "Destino generado automáticamente 14"
+  },
+  {
+    "nombre": "Destino 15",
+    "categoria": "montaña",
+    "region": "Cuyo",
+    "rating": 6.5,
+    "descripcion": "Destino generado automáticamente 15"
+  },
+  {
+    "nombre": "Destino 16",
+    "categoria": "montaña",
+    "region": "Patagonia",
+    "rating": 8.6,
+    "descripcion": "Destino generado automáticamente 16"
+  },
+  {
+    "nombre": "Destino 17",
+    "categoria": "montaña",
+    "region": "Patagonia",
+    "rating": 4.4,
+    "descripcion": "Destino generado automáticamente 17"
+  },
+  {
+    "nombre": "Destino 18",
+    "categoria": "playa",
+    "region": "Buenos Aires",
+    "rating": 5.8,
+    "descripcion": "Destino generado automáticamente 18"
+  },
+  {
+    "nombre": "Destino 19",
+    "categoria": "playa",
+    "region": "Litoral",
+    "rating": 9.2,
+    "descripcion": "Destino generado automáticamente 19"
+  },
+  {
+    "nombre": "Destino 20",
+    "categoria": "montaña",
+    "region": "Patagonia",
+    "rating": 9.4,
+    "descripcion": "Destino generado automáticamente 20"
+  },
+  {
+    "nombre": "Destino 21",
+    "categoria": "playa",
+    "region": "Patagonia",
+    "rating": 8.7,
+    "descripcion": "Destino generado automáticamente 21"
+  },
+  {
+    "nombre": "Destino 22",
+    "categoria": "naturaleza",
+    "region": "NOA",
+    "rating": 2.5,
+    "descripcion": "Destino generado automáticamente 22"
+  },
+  {
+    "nombre": "Destino 23",
+    "categoria": "ciudad",
+    "region": "Buenos Aires",
+    "rating": 9.4,
+    "descripcion": "Destino generado automáticamente 23"
+  },
+  {
+    "nombre": "Destino 24",
+    "categoria": "playa",
+    "region": "NOA",
+    "rating": 8.1,
+    "descripcion": "Destino generado automáticamente 24"
+  },
+  {
+    "nombre": "Destino 25",
+    "categoria": "montaña",
+    "region": "Uruguay",
+    "rating": 2.5,
+    "descripcion": "Destino generado automáticamente 25"
+  },
+  {
+    "nombre": "Destino 26",
+    "categoria": "ciudad",
+    "region": "Córdoba",
+    "rating": 1.6,
+    "descripcion": "Destino generado automáticamente 26"
+  },
+  {
+    "nombre": "Destino 27",
+    "categoria": "ciudad",
+    "region": "NOA",
+    "rating": 2.4,
+    "descripcion": "Destino generado automáticamente 27"
+  },
+  {
+    "nombre": "Destino 28",
+    "categoria": "montaña",
+    "region": "Patagonia",
+    "rating": 3.0,
+    "descripcion": "Destino generado automáticamente 28"
+  },
+  {
+    "nombre": "Destino 29",
+    "categoria": "naturaleza",
+    "region": "Córdoba",
+    "rating": 9.9,
+    "descripcion": "Destino generado automáticamente 29"
+  },
+  {
+    "nombre": "Destino 30",
+    "categoria": "playa",
+    "region": "NOA",
+    "rating": 8.6,
+    "descripcion": "Destino generado automáticamente 30"
+  },
+  {
+    "nombre": "Destino 31",
+    "categoria": "naturaleza",
+    "region": "Uruguay",
+    "rating": 7.5,
+    "descripcion": "Destino generado automáticamente 31"
+  },
+  {
+    "nombre": "Destino 32",
+    "categoria": "naturaleza",
+    "region": "Cuyo",
+    "rating": 8.3,
+    "descripcion": "Destino generado automáticamente 32"
+  },
+  {
+    "nombre": "Destino 33",
+    "categoria": "playa",
+    "region": "Litoral",
+    "rating": 8.5,
+    "descripcion": "Destino generado automáticamente 33"
+  },
+  {
+    "nombre": "Destino 34",
+    "categoria": "naturaleza",
+    "region": "NOA",
+    "rating": 9.3,
+    "descripcion": "Destino generado automáticamente 34"
+  },
+  {
+    "nombre": "Destino 35",
+    "categoria": "ciudad",
+    "region": "Patagonia",
+    "rating": 9.5,
+    "descripcion": "Destino generado automáticamente 35"
+  },
+  {
+    "nombre": "Destino 36",
+    "categoria": "ciudad",
+    "region": "Córdoba",
+    "rating": 9.3,
+    "descripcion": "Destino generado automáticamente 36"
+  },
+  {
+    "nombre": "Destino 37",
+    "categoria": "ciudad",
+    "region": "NOA",
+    "rating": 6.5,
+    "descripcion": "Destino generado automáticamente 37"
+  },
+  {
+    "nombre": "Destino 38",
+    "categoria": "montaña",
+    "region": "Litoral",
+    "rating": 6.0,
+    "descripcion": "Destino generado automáticamente 38"
+  },
+  {
+    "nombre": "Destino 39",
+    "categoria": "playa",
+    "region": "Buenos Aires",
+    "rating": 6.8,
+    "descripcion": "Destino generado automáticamente 39"
+  },
+  {
+    "nombre": "Destino 40",
+    "categoria": "montaña",
+    "region": "Litoral",
+    "rating": 4.3,
+    "descripcion": "Destino generado automáticamente 40"
+  },
+  {
+    "nombre": "Destino 41",
+    "categoria": "naturaleza",
+    "region": "Cuyo",
+    "rating": 6.5,
+    "descripcion": "Destino generado automáticamente 41"
+  },
+  {
+    "nombre": "Destino 42",
+    "categoria": "playa",
+    "region": "NOA",
+    "rating": 9.9,
+    "descripcion": "Destino generado automáticamente 42"
+  },
+  {
+    "nombre": "Destino 43",
+    "categoria": "montaña",
+    "region": "Uruguay",
+    "rating": 7.4,
+    "descripcion": "Destino generado automáticamente 43"
+  },
+  {
+    "nombre": "Destino 44",
+    "categoria": "montaña",
+    "region": "Patagonia",
+    "rating": 5.5,
+    "descripcion": "Destino generado automáticamente 44"
+  },
+  {
+    "nombre": "Destino 45",
+    "categoria": "ciudad",
+    "region": "Córdoba",
+    "rating": 8.6,
+    "descripcion": "Destino generado automáticamente 45"
+  },
+  {
+    "nombre": "Destino 46",
+    "categoria": "naturaleza",
+    "region": "Uruguay",
+    "rating": 4.4,
+    "descripcion": "Destino generado automáticamente 46"
+  },
+  {
+    "nombre": "Destino 47",
+    "categoria": "montaña",
+    "region": "NOA",
+    "rating": 8.6,
+    "descripcion": "Destino generado automáticamente 47"
+  },
+  {
+    "nombre": "Destino 48",
+    "categoria": "montaña",
+    "region": "NOA",
+    "rating": 7.9,
+    "descripcion": "Destino generado automáticamente 48"
+  },
+  {
+    "nombre": "Destino 49",
+    "categoria": "ciudad",
+    "region": "Buenos Aires",
+    "rating": 4.7,
+    "descripcion": "Destino generado automáticamente 49"
+  },
+  {
+    "nombre": "Destino 50",
+    "categoria": "naturaleza",
+    "region": "Litoral",
+    "rating": 7.0,
+    "descripcion": "Destino generado automáticamente 50"
+  },
+  {
+    "nombre": "Destino 51",
+    "categoria": "naturaleza",
+    "region": "Cuyo",
+    "rating": 8.2,
+    "descripcion": "Destino generado automáticamente 51"
+  },
+  {
+    "nombre": "Destino 52",
+    "categoria": "montaña",
+    "region": "Patagonia",
+    "rating": 5.7,
+    "descripcion": "Destino generado automáticamente 52"
+  },
+  {
+    "nombre": "Destino 53",
+    "categoria": "ciudad",
+    "region": "NOA",
+    "rating": 8.4,
+    "descripcion": "Destino generado automáticamente 53"
+  },
+  {
+    "nombre": "Destino 54",
+    "categoria": "ciudad",
+    "region": "Cuyo",
+    "rating": 6.0,
+    "descripcion": "Destino generado automáticamente 54"
+  },
+  {
+    "nombre": "Destino 55",
+    "categoria": "ciudad",
+    "region": "NOA",
+    "rating": 4.5,
+    "descripcion": "Destino generado automáticamente 55"
+  },
+  {
+    "nombre": "Destino 56",
+    "categoria": "ciudad",
+    "region": "Córdoba",
+    "rating": 3.7,
+    "descripcion": "Destino generado automáticamente 56"
+  },
+  {
+    "nombre": "Destino 57",
+    "categoria": "naturaleza",
+    "region": "Litoral",
+    "rating": 2.3,
+    "descripcion": "Destino generado automáticamente 57"
+  },
+  {
+    "nombre": "Destino 58",
+    "categoria": "playa",
+    "region": "Buenos Aires",
+    "rating": 6.7,
+    "descripcion": "Destino generado automáticamente 58"
+  },
+  {
+    "nombre": "Destino 59",
+    "categoria": "playa",
+    "region": "NOA",
+    "rating": 1.0,
+    "descripcion": "Destino generado automáticamente 59"
+  },
+  {
+    "nombre": "Destino 60",
+    "categoria": "playa",
+    "region": "Córdoba",
+    "rating": 3.6,
+    "descripcion": "Destino generado automáticamente 60"
+  },
+  {
+    "nombre": "Destino 61",
+    "categoria": "montaña",
+    "region": "NOA",
+    "rating": 8.5,
+    "descripcion": "Destino generado automáticamente 61"
+  },
+  {
+    "nombre": "Destino 62",
+    "categoria": "naturaleza",
+    "region": "Patagonia",
+    "rating": 3.6,
+    "descripcion": "Destino generado automáticamente 62"
+  },
+  {
+    "nombre": "Destino 63",
+    "categoria": "naturaleza",
+    "region": "Uruguay",
+    "rating": 8.6,
+    "descripcion": "Destino generado automáticamente 63"
+  },
+  {
+    "nombre": "Destino 64",
+    "categoria": "montaña",
+    "region": "NOA",
+    "rating": 7.3,
+    "descripcion": "Destino generado automáticamente 64"
+  },
+  {
+    "nombre": "Destino 65",
+    "categoria": "naturaleza",
+    "region": "NOA",
+    "rating": 7.2,
+    "descripcion": "Destino generado automáticamente 65"
+  },
+  {
+    "nombre": "Destino 66",
+    "categoria": "ciudad",
+    "region": "Cuyo",
+    "rating": 6.8,
+    "descripcion": "Destino generado automáticamente 66"
+  },
+  {
+    "nombre": "Destino 67",
+    "categoria": "montaña",
+    "region": "Buenos Aires",
+    "rating": 2.9,
+    "descripcion": "Destino generado automáticamente 67"
+  },
+  {
+    "nombre": "Destino 68",
+    "categoria": "montaña",
+    "region": "Patagonia",
+    "rating": 9.1,
+    "descripcion": "Destino generado automáticamente 68"
+  },
+  {
+    "nombre": "Destino 69",
+    "categoria": "ciudad",
+    "region": "NOA",
+    "rating": 2.6,
+    "descripcion": "Destino generado automáticamente 69"
+  },
+  {
+    "nombre": "Destino 70",
+    "categoria": "playa",
+    "region": "Uruguay",
+    "rating": 1.1,
+    "descripcion": "Destino generado automáticamente 70"
+  },
+  {
+    "nombre": "Destino 71",
+    "categoria": "naturaleza",
+    "region": "Litoral",
+    "rating": 6.1,
+    "descripcion": "Destino generado automáticamente 71"
+  },
+  {
+    "nombre": "Destino 72",
+    "categoria": "naturaleza",
+    "region": "Cuyo",
+    "rating": 1.8,
+    "descripcion": "Destino generado automáticamente 72"
+  },
+  {
+    "nombre": "Destino 73",
+    "categoria": "montaña",
+    "region": "Litoral",
+    "rating": 1.4,
+    "descripcion": "Destino generado automáticamente 73"
+  },
+  {
+    "nombre": "Destino 74",
+    "categoria": "ciudad",
+    "region": "Córdoba",
+    "rating": 8.0,
+    "descripcion": "Destino generado automáticamente 74"
+  },
+  {
+    "nombre": "Destino 75",
+    "categoria": "playa",
+    "region": "NOA",
+    "rating": 1.6,
+    "descripcion": "Destino generado automáticamente 75"
+  },
+  {
+    "nombre": "Destino 76",
+    "categoria": "playa",
+    "region": "NOA",
+    "rating": 7.6,
+    "descripcion": "Destino generado automáticamente 76"
+  },
+  {
+    "nombre": "Destino 77",
+    "categoria": "playa",
+    "region": "Uruguay",
+    "rating": 7.9,
+    "descripcion": "Destino generado automáticamente 77"
+  },
+  {
+    "nombre": "Destino 78",
+    "categoria": "playa",
+    "region": "Patagonia",
+    "rating": 3.9,
+    "descripcion": "Destino generado automáticamente 78"
+  },
+  {
+    "nombre": "Destino 79",
+    "categoria": "playa",
+    "region": "Buenos Aires",
+    "rating": 9.9,
+    "descripcion": "Destino generado automáticamente 79"
+  },
+  {
+    "nombre": "Destino 80",
+    "categoria": "montaña",
+    "region": "Cuyo",
+    "rating": 1.5,
+    "descripcion": "Destino generado automáticamente 80"
+  },
+  {
+    "nombre": "Destino 81",
+    "categoria": "montaña",
+    "region": "Córdoba",
+    "rating": 9.0,
+    "descripcion": "Destino generado automáticamente 81"
+  },
+  {
+    "nombre": "Destino 82",
+    "categoria": "playa",
+    "region": "NOA",
+    "rating": 1.0,
+    "descripcion": "Destino generado automáticamente 82"
+  },
+  {
+    "nombre": "Destino 83",
+    "categoria": "ciudad",
+    "region": "Litoral",
+    "rating": 6.8,
+    "descripcion": "Destino generado automáticamente 83"
+  },
+  {
+    "nombre": "Destino 84",
+    "categoria": "ciudad",
+    "region": "Córdoba",
+    "rating": 7.2,
+    "descripcion": "Destino generado automáticamente 84"
+  },
+  {
+    "nombre": "Destino 85",
+    "categoria": "ciudad",
+    "region": "Uruguay",
+    "rating": 9.3,
+    "descripcion": "Destino generado automáticamente 85"
+  },
+  {
+    "nombre": "Destino 86",
+    "categoria": "playa",
+    "region": "Buenos Aires",
+    "rating": 2.1,
+    "descripcion": "Destino generado automáticamente 86"
+  },
+  {
+    "nombre": "Destino 87",
+    "categoria": "ciudad",
+    "region": "NOA",
+    "rating": 6.0,
+    "descripcion": "Destino generado automáticamente 87"
+  },
+  {
+    "nombre": "Destino 88",
+    "categoria": "montaña",
+    "region": "Litoral",
+    "rating": 4.2,
+    "descripcion": "Destino generado automáticamente 88"
+  },
+  {
+    "nombre": "Destino 89",
+    "categoria": "playa",
+    "region": "Cuyo",
+    "rating": 8.1,
+    "descripcion": "Destino generado automáticamente 89"
+  },
+  {
+    "nombre": "Destino 90",
+    "categoria": "ciudad",
+    "region": "NOA",
+    "rating": 4.1,
+    "descripcion": "Destino generado automáticamente 90"
+  },
+  {
+    "nombre": "Destino 91",
+    "categoria": "ciudad",
+    "region": "Cuyo",
+    "rating": 1.2,
+    "descripcion": "Destino generado automáticamente 91"
+  },
+  {
+    "nombre": "Destino 92",
+    "categoria": "playa",
+    "region": "Cuyo",
+    "rating": 5.1,
+    "descripcion": "Destino generado automáticamente 92"
+  },
+  {
+    "nombre": "Destino 93",
+    "categoria": "playa",
+    "region": "Córdoba",
+    "rating": 6.0,
+    "descripcion": "Destino generado automáticamente 93"
+  },
+  {
+    "nombre": "Destino 94",
+    "categoria": "playa",
+    "region": "Uruguay",
+    "rating": 7.2,
+    "descripcion": "Destino generado automáticamente 94"
+  },
+  {
+    "nombre": "Destino 95",
+    "categoria": "naturaleza",
+    "region": "Córdoba",
+    "rating": 6.6,
+    "descripcion": "Destino generado automáticamente 95"
+  },
+  {
+    "nombre": "Destino 96",
+    "categoria": "playa",
+    "region": "Patagonia",
+    "rating": 9.9,
+    "descripcion": "Destino generado automáticamente 96"
+  },
+  {
+    "nombre": "Destino 97",
+    "categoria": "playa",
+    "region": "Uruguay",
+    "rating": 8.2,
+    "descripcion": "Destino generado automáticamente 97"
+  },
+  {
+    "nombre": "Destino 98",
+    "categoria": "playa",
+    "region": "Cuyo",
+    "rating": 9.3,
+    "descripcion": "Destino generado automáticamente 98"
+  },
+  {
+    "nombre": "Destino 99",
+    "categoria": "montaña",
+    "region": "Litoral",
+    "rating": 4.1,
+    "descripcion": "Destino generado automáticamente 99"
+  }
+]
