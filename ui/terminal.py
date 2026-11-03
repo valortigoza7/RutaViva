@@ -10,6 +10,10 @@ la que efectivamente usa el usuario al buscar un destino.
 TP6: la opción "Ver Top 10" se resuelve con la heap binaria
 (Catalogo.top_n), que devuelve los destinos mejor puntuados sin
 ordenar todo el catálogo.
+
+TP7: la opción "Ver relacionados" se resuelve con el grafo de destinos
+(Catalogo.relacionados): muestra los destinos conectados con el elegido
+y por qué están conectados.
 """
 
 from servicios.catalogo import Catalogo
@@ -47,7 +51,7 @@ def mostrar_destino(destino) -> None:
     print(f"\n  {destino.nombre}")
     print(f"  Categoría: {destino.categoria} | Región: {destino.region}")
     print(f"  Rating: ⭐{destino.rating}")
-    if getattr(destino, 'descripcion', None):
+    if destino.descripcion:
         print(f"  {destino.descripcion}")
 
 
@@ -58,7 +62,6 @@ def opcion_buscar(catalogo: Catalogo) -> None:
         mostrar_destino(resultado)
     else:
         print(f"\nNo se encontró ningún destino llamado '{nombre}'.")
-    input("\nPresione Enter para continuar...")
 
 
 def opcion_explorar_categorias(catalogo: Catalogo) -> None:
@@ -88,16 +91,35 @@ def opcion_listar(catalogo: Catalogo) -> None:
     print(f"\nCatálogo completo ({catalogo.cantidad()} destinos):")
     for destino in catalogo.listar():
         print(f"  - {destino}")
-    input("\nPresione Enter para continuar...")
 
 
-def opcion_ver_top_10(catalogo: Catalogo) -> None:
-    top_destinos = catalogo.top_n(CANTIDAD_TOP)
-    print(f"\n=== Top {len(top_destinos)} Destinos Mejor Puntuados ===")
-    for idx, destino in enumerate(top_destinos, start=1):
-        print(f"  {idx}. {destino.nombre} - ⭐{destino.rating} ({destino.categoria})")
-    
-    input("\nPresione Enter para volver al menú principal...")
+def opcion_top(catalogo: Catalogo) -> None:
+    mejores = catalogo.top_n(CANTIDAD_TOP)
+    if not mejores:
+        print("\nTodavía no hay destinos cargados.")
+        return
+
+    print(f"\nTop {len(mejores)} destinos mejor puntuados:")
+    for posicion, destino in enumerate(mejores, start=1):
+        print(f"  {posicion}. {destino.nombre} — ⭐{destino.rating} ({destino.categoria})")
+
+
+def opcion_relacionados(catalogo: Catalogo) -> None:
+    nombre = input("Nombre del destino: ").strip()
+    relacionados = catalogo.relacionados(nombre)
+    if relacionados is None:
+        print(f"\nNo se encontró ningún destino llamado '{nombre}'.")
+        return
+
+    origen = catalogo.buscar(nombre)
+    if not relacionados:
+        print(f"\n{origen.nombre} no tiene destinos relacionados.")
+        return
+
+    print(f"\nDestinos relacionados con {origen.nombre}:")
+    for destino in relacionados:
+        motivo = ", ".join(Catalogo.motivo_relacion(origen, destino))
+        print(f"  - {destino.nombre} — ⭐{destino.rating} ({motivo})")
 
 
 def menu(catalogo: Catalogo) -> None:
@@ -109,7 +131,7 @@ def menu(catalogo: Catalogo) -> None:
         print("2. Explorar categorías (Árbol General)")
         print("3. Listar todos los destinos")
         print("4. Ver Top 10")
-        print("5. Ver relacionados    (próximamente)")
+        print("5. Ver relacionados")
         print("6. Explorar conexiones (próximamente)")
         print("7. Encontrar camino    (próximamente)")
         print("8. Recomendaciones     (próximamente)")
@@ -125,10 +147,11 @@ def menu(catalogo: Catalogo) -> None:
         elif opcion == "3":
             opcion_listar(catalogo)
         elif opcion == "4":
-            opcion_ver_top_10(catalogo)
-        elif opcion in ("5", "6", "7", "8"):
+            opcion_top(catalogo)
+        elif opcion == "5":
+            opcion_relacionados(catalogo)
+        elif opcion in ("6", "7", "8"):
             print("\nEsta funcionalidad se implementa en una etapa posterior del TP.")
-            input("\nPresione Enter para continuar...")
         elif opcion == "0":
             print("\n¡Buen viaje! 👋")
             break
