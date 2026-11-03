@@ -19,6 +19,11 @@ necesitando para la comparación de complejidad.
 
 TP6: se agrega top_n, que usa la heap binaria (servicios/heap_binaria.py)
 para obtener los N destinos mejor puntuados sin ordenar todo el catálogo.
+
+TP7: se agrega el grafo de destinos (servicios/grafo.py). Dos destinos
+quedan conectados si comparten región o categoría. Los vértices son los
+nombres de los destinos (no los objetos Destino, porque Destino define
+__eq__ sin __hash__ y por eso no se puede usar como clave de un dict).
 """
 
 import bisect
@@ -28,6 +33,7 @@ from typing import List, Optional
 
 from modelos.destino import Destino
 from servicios.arbol_binario import ArbolBinarioBusqueda
+from servicios.grafo import Grafo
 from servicios.heap_binaria import HeapBinaria
 
 
@@ -36,6 +42,7 @@ class Catalogo:
         self._destinos: List[Destino] = []
         self._nombres_ordenados: List[str] = []  # cache para buscar_binaria (TP2)
         self._arbol = ArbolBinarioBusqueda()      # TP3
+        self._grafo = Grafo()                     # TP7
 
     # --- Carga de datos ---
     def cargar_desde_json(self, ruta: str) -> None:
@@ -146,6 +153,53 @@ class Catalogo:
             _, destino = heap.extraer_maximo()
             resultado.append(destino)
         return resultado
+
+    # --- TP7: grafo de destinos relacionados ---
+    def construir_grafo(self) -> None:
+        """
+        Arma el grafo no dirigido de destinos: cada destino es un vértice
+        (identificado por su nombre) y dos destinos se conectan si
+        comparten región o categoría.
+
+        Se llama una sola vez después de cargar los datos. Comparar todos
+        los pares cuesta O(m^2); es un costo de preparación, no de consulta.
+        """
+        self._grafo = Grafo()
+        for destino in self._destinos:
+            self._grafo.agregar_vertice(destino.nombre)
+        for i, a in enumerate(self._destinos):
+            for b in self._destinos[i + 1:]:
+                if self.motivo_relacion(a, b):
+                    self._grafo.conectar(a.nombre, b.nombre)
+
+    @staticmethod
+    def motivo_relacion(a: Destino, b: Destino) -> List[str]:
+        """Devuelve por qué dos destinos están relacionados (lista vacía si no lo están)."""
+        motivos = []
+        if a.region.lower() == b.region.lower():
+            motivos.append(f"misma región ({a.region})")
+        if a.categoria.lower() == b.categoria.lower():
+            motivos.append(f"misma categoría ({a.categoria})")
+        return motivos
+
+    @property
+    def grafo(self) -> Grafo:
+        """Grafo de destinos; se construye la primera vez que se pide."""
+        if not self._grafo.adyacencia:
+            self.construir_grafo()
+        return self._grafo
+
+    def relacionados(self, nombre: str) -> Optional[List[Destino]]:
+        """
+        Devuelve los destinos conectados con el indicado, del mejor al peor
+        rating (con empate, por nombre). Devuelve None si el destino no existe.
+        Costo: O(k log k), con k = cantidad de vecinos.
+        """
+        destino = self.buscar(nombre)
+        if destino is None:
+            return None
+        vecinos = [self.buscar(n) for n in self.grafo.obtener_vecinos(destino.nombre)]
+        return sorted(vecinos, key=lambda d: (-d.rating, d.nombre))
 
     # --- Operación 2: Listar ---
     def listar(self) -> List[Destino]:
