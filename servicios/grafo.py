@@ -31,3 +31,57 @@ class Grafo:
     def obtener_vecinos(self, destino):
         """Devuelve los destinos conectados con el destino indicado."""
         return self.adyacencia.get(destino, [])
+
+    def bfs(self, inicio):
+        """
+        Recorre el grafo en anchura (BFS).
+
+        Comienza desde un destino y visita primero
+        sus vecinos, luego los vecinos de estos.
+
+        Devuelve una lista con el orden de visita.
+        """
+        if inicio not in self.adyacencia:
+            return []
+
+        visitados = []
+        cola = [inicio]
+        vistos = {inicio}
+
+        while cola:
+            actual = cola.pop(0)
+            visitados.append(actual)
+
+            for vecino in self.adyacencia[actual]:
+                if vecino not in vistos:
+                    vistos.add(vecino)
+                    cola.append(vecino)
+
+        return visitados
+
+    def dfs(self, inicio):
+        """
+        Recorre el grafo en profundidad (DFS).
+
+        Explora un camino todo lo posible antes
+        de regresar y continuar con otros vecinos.
+
+        Devuelve una lista con el orden de visita.
+        """
+        if inicio not in self.adyacencia:
+            return []
+
+        visitados = []
+        pila = [inicio]
+        vistos = {inicio}
+
+        while pila:
+            actual = pila.pop()
+            visitados.append(actual)
+
+            for vecino in reversed(self.adyacencia[actual]):
+                if vecino not in vistos:
+                    vistos.add(vecino)
+                    pila.append(vecino)
+
+        return visitados
