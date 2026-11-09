@@ -74,3 +74,13 @@ class TestGrafoCatalogo(unittest.TestCase):
         self.assertEqual(self.cat.relacionados("Isla Perdida"), [])
 
     def test_catalogo_vacio_da_grafo_vacio(self):
+        cat_vacio = Catalogo()
+
+        with tempfile.TemporaryDirectory() as tmp:
+            ruta = Path(tmp) / "vacio.json"
+            ruta.write_text("[]", encoding="utf-8")
+
+            cat_vacio.cargar_desde_json(ruta)
+            cat_vacio.construir_grafo()
+
+        self.assertEqual(cat_vacio.grafo.adyacencia, {})
