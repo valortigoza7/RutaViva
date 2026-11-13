@@ -62,6 +62,12 @@ def main():
     titulo("Consulta 7: Un destino que no existe")
     print("  relacionados('Atlantis') ->", cat.relacionados("Atlantis"))
 
+    titulo("Consulta 8 (TP8 - BFS): Recomendaciones progresivas desde Bariloche")
+    sugerencias = q.recomendaciones_por_cercania_bfs(cat, "Bariloche", limite=6)
+    print("  Orden de cercanía (BFS):", " -> ".join(sugerencias or []))
 
+    titulo("Consulta 9 (TP8 - DFS): Itinerario encadenado en profundidad desde Bariloche")
+    itinerario = q.itinerario_encadenado_dfs(cat, "Bariloche")
+    print("  Ruta profunda (DFS):", " -> ".join(itinerario or []))
 if __name__ == "__main__":
     main()

@@ -84,3 +84,21 @@ class TestGrafoCatalogo(unittest.TestCase):
             cat_vacio.construir_grafo()
 
         self.assertEqual(cat_vacio.grafo.adyacencia, {})
+
+    def test_recomendaciones_por_cercania_bfs(self):
+        # Desde Bariloche: primero vecinos directos (El Chaltén, Ushuaia)
+        # y luego el conectado a 2 saltos (Iguazú, vía Ushuaia)
+        res = q.recomendaciones_por_cercania_bfs(self.cat, "Bariloche")
+        self.assertEqual(set(res[:2]), {"El Chaltén", "Ushuaia"})
+        self.assertEqual(res[2], "Iguazú")
+        self.assertEqual(len(res), 3)
+
+    def test_recomendaciones_bfs_con_limite_e_inexistente(self):
+        self.assertEqual(len(q.recomendaciones_por_cercania_bfs(self.cat, "Bariloche", limite=2)), 2)
+        self.assertIsNone(q.recomendaciones_por_cercania_bfs(self.cat, "Atlantis"))
+
+    def test_itinerario_encadenado_dfs(self):
+        ruta = q.itinerario_encadenado_dfs(self.cat, "Bariloche")
+        self.assertEqual(ruta[0], "Bariloche")
+        self.assertEqual(set(ruta), {"Bariloche", "El Chaltén", "Ushuaia", "Iguazú"})
+        self.assertIsNone(q.itinerario_encadenado_dfs(self.cat, "Atlantis"))
