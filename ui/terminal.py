@@ -18,6 +18,7 @@ y por qué están conectados.
 
 from servicios.catalogo import Catalogo
 from servicios.arbol_general import ArbolGeneral
+from servicios import consultas_grafo
 
 SEPARADOR = "-" * 40
 CANTIDAD_TOP = 10
@@ -121,6 +122,59 @@ def opcion_relacionados(catalogo: Catalogo) -> None:
         motivo = ", ".join(Catalogo.motivo_relacion(origen, destino))
         print(f"  - {destino.nombre} — ⭐{destino.rating} ({motivo})")
 
+def opcion_explorar_conexiones(catalogo: Catalogo) -> None:
+    nombre = input("Nombre del destino: ").strip()
+    destino = catalogo.buscar(nombre)
+
+    if destino is None:
+        print(f"\nNo se encontró ningún destino llamado '{nombre}'.")
+        return
+
+    vecinos = catalogo.grafo.obtener_vecinos(destino.nombre)
+
+    print(f"\nConexiones de {destino.nombre}:")
+    print(f"Cantidad de conexiones: {len(vecinos)}")
+
+    if not vecinos:
+        print("Este destino no tiene conexiones.")
+        return
+
+    for nombre_vecino in vecinos:
+        vecino = catalogo.buscar(nombre_vecino)
+        motivos = Catalogo.motivo_relacion(destino, vecino)
+        motivo = ", ".join(motivos)
+
+        print(
+            f"  - {vecino.nombre} — ⭐{vecino.rating} "
+            f"({motivo})"
+        )
+
+def opcion_recomendaciones(catalogo: Catalogo) -> None:
+    nombre = input("¿Desde qué destino querés recibir recomendaciones? ").strip()
+
+    recomendaciones = consultas_grafo.recomendaciones_por_cercania_bfs(
+        catalogo, nombre
+    )
+
+    if recomendaciones is None:
+        print(f"\nNo se encontró ningún destino llamado '{nombre}'.")
+        return
+
+    if not recomendaciones:
+        print("\nNo hay recomendaciones disponibles.")
+        return
+
+    print(f"\nRecomendaciones para viajar desde {nombre}:")
+    print("Ordenadas por cercanía mediante BFS:")
+
+    for posicion, nombre_destino in enumerate(recomendaciones, start=1):
+        destino = catalogo.buscar(nombre_destino)
+
+        print(
+            f"  {posicion}. {destino.nombre} — "
+            f"⭐{destino.rating} "
+            f"({destino.categoria} · {destino.region})"
+        )
 
 def menu(catalogo: Catalogo) -> None:
     while True:
@@ -132,9 +186,9 @@ def menu(catalogo: Catalogo) -> None:
         print("3. Listar todos los destinos")
         print("4. Ver Top 10")
         print("5. Ver relacionados")
-        print("6. Explorar conexiones (próximamente)")
-        print("7. Encontrar camino    (próximamente)")
-        print("8. Recomendaciones     (próximamente)")
+        print("6. Explorar conexiones")
+        print("7. Encontrar camino (próximamente)")
+        print("8. Recomendaciones")
         print("0. Salir")
         print(SEPARADOR)
 
@@ -150,8 +204,12 @@ def menu(catalogo: Catalogo) -> None:
             opcion_top(catalogo)
         elif opcion == "5":
             opcion_relacionados(catalogo)
-        elif opcion in ("6", "7", "8"):
+        elif opcion == "6":
+            opcion_explorar_conexiones(catalogo)
+        elif opcion == "7":
             print("\nEsta funcionalidad se implementa en una etapa posterior del TP.")
+        elif opcion == "8":
+            opcion_recomendaciones(catalogo)
         elif opcion == "0":
             print("\n¡Buen viaje! 👋")
             break
