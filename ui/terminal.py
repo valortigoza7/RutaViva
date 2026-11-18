@@ -165,7 +165,6 @@ def opcion_recomendaciones(catalogo: Catalogo) -> None:
         return
 
     print(f"\nRecomendaciones para viajar desde {nombre}:")
-    print("Recomendaciones")
 
     for posicion, nombre_destino in enumerate(recomendaciones, start=1):
         destino = catalogo.buscar(nombre_destino)
@@ -209,14 +208,13 @@ def menu(catalogo: Catalogo) -> None:
         print("        ✈️  RUTAVIVA — TERMINAL")
         print("=" * 40)
         print("1. Buscar destino")
-        print("2. Explorar categorías (Árbol General)")
+        print("2. Explorar categorías")
         print("3. Listar todos los destinos")
         print("4. Ver Top 10")
         print("5. Ver relacionados")
-        print("6. Explorar conexiones")
-        print("7. Encontrar camino (próximamente)")
-        print("8. Recomendaciones")
-        print("9. Explorar destinos en profundidad")
+        print("6. Encontrar camino (próximamente)")
+        print("7. Recomendaciones")
+        print("8. Explorar destinos en profundidad")
         print("0. Salir")
         print(SEPARADOR)
 
@@ -233,12 +231,10 @@ def menu(catalogo: Catalogo) -> None:
         elif opcion == "5":
             opcion_relacionados(catalogo)
         elif opcion == "6":
-            opcion_explorar_conexiones(catalogo)
-        elif opcion == "7":
             print("\nEsta funcionalidad se implementa en una etapa posterior del TP.")
-        elif opcion == "8":
+        elif opcion == "7":
             opcion_recomendaciones(catalogo)
-        elif opcion == "9":
+        elif opcion == "8":
             opcion_explorar_profundidad(catalogo)
         elif opcion == "0":
             print("\n¡Buen viaje! 👋")
