@@ -1,3 +1,5 @@
+from collections import deque
+
 class Grafo:
     """
     Representa un grafo no dirigido mediante una lista de adyacencia.
@@ -32,24 +34,26 @@ class Grafo:
         """Devuelve los destinos conectados con el destino indicado."""
         return self.adyacencia.get(destino, [])
 
+    
     def bfs(self, inicio):
         """
         Recorre el grafo en anchura (BFS).
 
-        Comienza desde un destino y visita primero
-        sus vecinos, luego los vecinos de estos.
+        Visita primero los vecinos directos y luego
+        los destinos conectados a niveles posteriores.
 
         Devuelve una lista con el orden de visita.
+        Complejidad: O(V + E).
         """
         if inicio not in self.adyacencia:
             return []
 
         visitados = []
-        cola = [inicio]
+        cola = deque([inicio])
         vistos = {inicio}
 
         while cola:
-            actual = cola.pop(0)
+            actual = cola.popleft()
             visitados.append(actual)
 
             for vecino in self.adyacencia[actual]:
@@ -58,6 +62,7 @@ class Grafo:
                     cola.append(vecino)
 
         return visitados
+   
 
     def dfs(self, inicio):
         """
