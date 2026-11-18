@@ -165,9 +165,36 @@ def opcion_recomendaciones(catalogo: Catalogo) -> None:
         return
 
     print(f"\nRecomendaciones para viajar desde {nombre}:")
-    print("Ordenadas por cercanía mediante BFS:")
+    print("Recomendaciones")
 
     for posicion, nombre_destino in enumerate(recomendaciones, start=1):
+        destino = catalogo.buscar(nombre_destino)
+
+        print(
+            f"  {posicion}. {destino.nombre} — "
+            f"⭐{destino.rating} "
+            f"({destino.categoria} · {destino.region})"
+        )
+
+def opcion_explorar_profundidad(catalogo: Catalogo) -> None:
+    nombre = input("¿Desde qué destino querés comenzar la exploración? ").strip()
+
+    recorrido = consultas_grafo.itinerario_encadenado_dfs(
+        catalogo, nombre
+    )
+
+    if recorrido is None:
+        print(f"\nNo se encontró ningún destino llamado '{nombre}'.")
+        return
+
+    if not recorrido:
+        print("\nNo hay destinos para explorar.")
+        return
+
+    print(f"\nExploración en profundidad desde {nombre}:")
+    print("Recorrido realizado mediante DFS:")
+
+    for posicion, nombre_destino in enumerate(recorrido, start=1):
         destino = catalogo.buscar(nombre_destino)
 
         print(
@@ -189,6 +216,7 @@ def menu(catalogo: Catalogo) -> None:
         print("6. Explorar conexiones")
         print("7. Encontrar camino (próximamente)")
         print("8. Recomendaciones")
+        print("9. Explorar destinos en profundidad")
         print("0. Salir")
         print(SEPARADOR)
 
@@ -210,6 +238,8 @@ def menu(catalogo: Catalogo) -> None:
             print("\nEsta funcionalidad se implementa en una etapa posterior del TP.")
         elif opcion == "8":
             opcion_recomendaciones(catalogo)
+        elif opcion == "9":
+            opcion_explorar_profundidad(catalogo)
         elif opcion == "0":
             print("\n¡Buen viaje! 👋")
             break
