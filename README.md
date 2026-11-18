@@ -2,10 +2,16 @@
 
 Sistema de recomendación de destinos de viaje — TP Integrador de Estructuras de Datos.
 
-**Estado actual:** TP8 — Recorridos BFS y DFS  
+**Estado actual:** TP8 — Recorridos BFS y DFS (Finalizado para entrega y defensa oral)  
 **Versión:** 6
 
-RutaViva es una aplicación de terminal que permite consultar destinos turísticos, explorar categorías, obtener los destinos mejor valorados y descubrir relaciones entre destinos mediante un grafo.
+RutaViva es una aplicación de terminal desarrollada en Python que permite consultar destinos turísticos, explorar categorías, obtener los destinos mejor valorados y descubrir relaciones entre destinos mediante un grafo.
+
+## Integrantes del Equipo
+
+- **Melina Raso**
+- **Ignacio Candido**
+- **Valentina Ortigoza**
 
 ## Funcionalidades
 
@@ -34,47 +40,15 @@ La aplicación ofrece las siguientes opciones desde el menú de terminal:
 
 En el grafo actual, las conexiones no tienen pesos: no representan kilómetros, duración ni costo económico del viaje.
 
-## Organización del proyecto
+## Estructura del Repositorio
 
-- `datos/`: contiene los datos de los destinos en formato JSON.
-- `modelos/`: contiene las clases que representan los objetos del dominio.
-- `servicios/`: contiene el catálogo, las estructuras de datos y las consultas.
-- `ui/`: contiene la interfaz de terminal.
-- `tests/`: contiene las pruebas automatizadas.
-- `docs/`: contiene la documentación del proyecto y de las entregas.
-
-## Documentación
-
-- [Casos de uso](docs/02-casos-de-uso.md)
-- [Diagrama de clases](docs/03_diagrama_clases.md)
-- [Diagrama de conexión entre estructuras de datos](docs/04-diagrama-datos.md)
-- [Documentación TP8: recorridos BFS y DFS](docs/tp8-recorridos.md)
-
-## Requisitos
-
-- Python 3.10 o superior.
-- No requiere dependencias externas.
-
-## Ejecución
-
-Desde la carpeta principal del proyecto, ejecutar:
-
-```bash
-python main.py
-```
-
-## Pruebas automatizadas
-
-Para ejecutar todas las pruebas:
-
-```bash
-python -m unittest discover -s tests -v
-```
-
-Las pruebas verifican el comportamiento del catálogo, las estructuras de datos y las consultas implementadas, incluidos los recorridos del grafo.
-
-## Demostración
-
-La siguiente captura corresponde a una demostración de la aplicación en terminal:
-
-![Demostración del Sistema](docs/demo.png)
+```text
+RutaViva/
+├── datos/               # Datos de los destinos en formato JSON (destinos.json)
+├── modelos/             # Clases que representan los objetos del dominio (Destino)
+├── servicios/           # Catálogo, estructuras de datos (BST, AVL, Árbol General, Heap, Grafo) y consultas
+├── ui/                  # Interfaz interactiva de terminal
+├── tests/               # Pruebas unitarias automatizadas (45 tests)
+├── docs/                # Documentación del proyecto, diagramas y entregas
+├── main.py              # Punto de entrada principal de la aplicación
+└── README.md            # Documentación general del repositorio
