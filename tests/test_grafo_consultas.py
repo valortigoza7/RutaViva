@@ -102,3 +102,48 @@ class TestGrafoCatalogo(unittest.TestCase):
         self.assertEqual(ruta[0], "Bariloche")
         self.assertEqual(set(ruta), {"Bariloche", "El Chaltén", "Ushuaia", "Iguazú"})
         self.assertIsNone(q.itinerario_encadenado_dfs(self.cat, "Atlantis"))
+
+    def test_bfs_recorrido_por_niveles(self):
+        g = self.cat.grafo
+        recorrido = g.bfs("Bariloche")
+
+        # Los vecinos directos deben aparecer antes que Iguazú,
+        # que está conectado a una distancia de dos aristas.
+        posiciones = {nombre: i for i, nombre in enumerate(recorrido)}
+
+        self.assertLess(posiciones["El Chaltén"], posiciones["Iguazú"])
+        self.assertLess(posiciones["Ushuaia"], posiciones["Iguazú"])
+
+    def test_dfs_visita_todos_los_destinos_alcanzables(self):
+        g = self.cat.grafo
+        recorrido = g.dfs("Bariloche")
+
+        self.assertEqual(
+            set(recorrido),
+            {"Bariloche", "El Chaltén", "Ushuaia", "Iguazú"},
+        )
+        self.assertEqual(len(recorrido), len(set(recorrido)))
+
+    def test_bfs_vertice_inexistente(self):
+        self.assertEqual(self.cat.grafo.bfs("Atlantis"), [])
+
+    def test_dfs_vertice_inexistente(self):
+        self.assertEqual(self.cat.grafo.dfs("Atlantis"), [])
+
+    def test_bfs_destino_aislado(self):
+        self.assertEqual(self.cat.grafo.bfs("Mar del Plata"), ["Mar del Plata"])
+
+    def test_dfs_destino_aislado(self):
+        self.assertEqual(self.cat.grafo.dfs("Mar del Plata"), ["Mar del Plata"])
+
+    def test_bfs_y_dfs_grafo_vacio(self):
+        cat_vacio = Catalogo()
+
+        with tempfile.TemporaryDirectory() as tmp:
+            ruta = Path(tmp) / "vacio.json"
+            ruta.write_text("[]", encoding="utf-8")
+            cat_vacio.cargar_desde_json(ruta)
+            cat_vacio.construir_grafo()
+
+        self.assertEqual(cat_vacio.grafo.bfs("Bariloche"), [])
+        self.assertEqual(cat_vacio.grafo.dfs("Bariloche"), [])
